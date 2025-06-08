@@ -2,6 +2,8 @@
   if (window.__pulpoar_tryon_loaded__) return;
   window.__pulpoar_tryon_loaded__ = true;
 
+  if (!window.location.pathname.startsWith('/products/')) return;
+  
   let stream = null;
 
   // Try-On Başlat Butonu
