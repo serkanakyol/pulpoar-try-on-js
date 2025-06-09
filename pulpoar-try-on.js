@@ -68,6 +68,20 @@
     let currentSku = getSelectedSku();
     if (currentSku) window.pulpoar.applyVariants([currentSku]);
 
+    function onVariantChange() {
+      // Yeni SKU'yu al
+      const newSku = getSelectedSku();
+      if (newSku) {
+        // data-sku özniteliğini güncelle (istersen)
+        const cfg = document.getElementById("pulpoar-virtual-try-on-config");
+        cfg.setAttribute("data-sku", newSku);
+        // PulpoAR SDK'yı tetikle
+        if (window.pulpoar?.applyVariants) {
+          window.pulpoar.applyVariants([newSku]);
+        }
+      }
+    } 
+    
     const form = document.querySelector('form[action*="/cart/add"]');
     if (form) {
       form.addEventListener("change", onVariantChange);
