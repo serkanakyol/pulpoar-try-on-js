@@ -118,9 +118,12 @@
 
   function getSelectedSku() {
     const form = document.querySelector('form[action*="/cart/add"]');
+    console.log(form);
     if (!form) return null;
     const variantId = form.querySelector('[name="id"]').value;
+    console.log(variantId);
     const variant = variants.find((v) => v.id.toString() === variantId.toString());
+    console.log(variantId);
     return variant?.sku || null;
   }
 
