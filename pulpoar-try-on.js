@@ -4,8 +4,8 @@
 
   if (!window.location.pathname.startsWith('/products/')) return;
 
-  const params = new URLSearchParams(window.location.search);
-  const slug = params.get("slug");
+  const skuContainer = document.getElementById("pulpoar-sku");
+  const slug = skuContainer?.getAttribute("data-sku");
 
   if (!slug) {
     console.warn("PulpoAR Try-On: 'slug' parametresi eksik.");
