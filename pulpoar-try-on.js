@@ -95,7 +95,7 @@ console.log(newSku);
     btn.addEventListener("click", () => {
       const sku = getSelectedSku();
       if (!sku) return;
-      iframe.src = `https://plugin.pulpoar.com/vto/${project}?catalog=false`;
+      iframe.src = `https://plugin.pulpoar.com/vto/${project}`;
       popup.style.display = popup.style.display === "none" ? "block" : "none";
       window.pulpoar.applyVariants([sku]);
     });
