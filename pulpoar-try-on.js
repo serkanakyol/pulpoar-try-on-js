@@ -7,10 +7,13 @@
     if (!cfg) return;
     const project  = cfg.dataset.project;
     const variants = JSON.parse(cfg.dataset.variants || "[]");
+    console.log(variants);
     if (!project || variants.length === 0) return;
+    
     await loadPulpoarSdk();
 
     const btn = document.createElement("button");
+    
     btn.id = "pulpoar-tryon-btn";
     btn.innerText = "Try Virtual On";
     Object.assign(btn.style, {
@@ -63,7 +66,7 @@
     btn.addEventListener("click", () => {
       const sku = getSelectedSku();
       if (!sku) return;
-      iframe.src = `https://plugin.pulpoar.com/vto/${project}?catalog=false&sku=${encodeURIComponent(sku)}`;
+      iframe.src = `https://plugin.pulpoar.com/vto/${project}?catalog=true`;
       const isOpen = popup.style.display === "block";
       popup.style.display = isOpen ? "none" : "block";
       btn.innerText = isOpen ? "Try Virtual On" : "Close";
