@@ -66,11 +66,13 @@
     popup.appendChild(iframe);
     
     let currentSku = getSelectedSku();
+console.log(currentSku);    
     if (currentSku) window.pulpoar.applyVariants([currentSku]);
 
     function onVariantChange() {
       // Yeni SKU'yu al
       const newSku = getSelectedSku();
+console.log(newSku);      
       if (newSku) {
         // data-sku özniteliğini güncelle (istersen)
         const cfg = document.getElementById("pulpoar-virtual-try-on-config");
@@ -133,6 +135,7 @@
     console.log(variantId);
     const variant = variants.find((v) => v.id.toString() === variantId.toString());
     console.log(variantId);
+    console.log(variant?.sku || null);
     return variant?.sku || null;
   }
 
