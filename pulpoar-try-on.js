@@ -64,11 +64,6 @@
       border: "none",
     });
     popup.appendChild(iframe);
-
-    closeBtn.onclick = () => {
-      popup.style.display = "none";
-    };
-    popup.appendChild(closeBtn);
     
     let currentSku = getSelectedSku();
     if (currentSku) window.pulpoar.applyVariants([currentSku]);
