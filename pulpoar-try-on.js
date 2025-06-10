@@ -1,15 +1,17 @@
 ;(function () {
   if (window.__pulpoar_tryon_loaded__) return;
   window.__pulpoar_tryon_loaded__ = true;
-
+console.log("initialized");
   if (!window.location.pathname.startsWith("/products/")) return;
 
   const cfg = document.getElementById("pulpoar-virtual-try-on-config");
+console.log(cfg);  
   if (!cfg) return;
 
   const project  = cfg.dataset.project;
   const variants = JSON.parse(cfg.dataset.variants || "[]");
-  
+  console.log(project);  
+  console.log(variants);  
   if (!project || variants.length === 0) {
     console.warn("PulpoAR: Missing config (project/variants).");
     return;
